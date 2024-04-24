@@ -7,10 +7,10 @@ function Todo({ todos, setTodos }) {
     setTodos(todoLists);
   };
   const handleEdit = (id) => {
-    const editTodo = todos.find((todo) => todo.id === id);
-    editTodo.edit = "true";
-    <EditTodo editTodo={editTodo} />;
-    console.log(editTodo);
+    const newTodos = todos.map((todo) =>
+      todo.id === id ? { ...todo, edit: !todo.edit } : todo
+    );
+    setTodos(newTodos);
   };
   console.log(todos);
   return (

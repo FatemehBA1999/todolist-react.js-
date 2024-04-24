@@ -18,7 +18,7 @@ function HeaderTodo({ setTodos }) {
       <div className="todo__header">
         <h2 className="todo__title">Get Thing Done!</h2>
         <div className="content__search">
-          <div className="search__todo">
+          <form className="search__todo" onSubmit={handleTodo}>
             <input
               name="todo_Input"
               value={todoInput}
@@ -27,10 +27,8 @@ function HeaderTodo({ setTodos }) {
               type="text"
               onChange={(e) => setTodoInput(e.target.value)}
             />
-            <button onClick={handleTodo} className="btn btn-primary">
-              Add Task
-            </button>
-          </div>
+            <button className="btn btn-primary">Add Task</button>
+          </form>
         </div>
       </div>
     </div>

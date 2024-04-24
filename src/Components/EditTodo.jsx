@@ -1,28 +1,26 @@
 import React, { useState } from "react";
 
-function EditTodo({ editTodo }) {
+function EditTodo({ todo, setTodos }) {
   const [editTodoInput, setEditTodoInput] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const handleEditTodo = () => {
-    editTodo.title = editTodoInput;
-    setIsOpen((open) => !open);
-    console.log(editTodo);
+    setIsOpen(!isOpen);
+    console.log(todo.title);
+    setTodos((prevTodos) => [...prevTodos, todo]);
   };
   return (
-    <div className={`${isOpen ? "content__search" : ""}`}>
-      <div className="search__todo">
+    <div className="content__search">
+      <form className="search__todo" onSubmit={handleEditTodo}>
         <input
           name="todo_Input"
           value={editTodoInput}
-          placeholder="what is the task today"
+          placeholder="update task"
           className="search"
           type="text"
           onChange={(e) => setEditTodoInput(e.target.value)}
         />
-        <button onClick={handleEditTodo} className="btn btn-primary">
-          Done
-        </button>
-      </div>
+        <button className="btn btn-primary">Done</button>
+      </form>
     </div>
   );
 }

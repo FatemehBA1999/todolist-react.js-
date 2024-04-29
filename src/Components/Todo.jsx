@@ -1,7 +1,6 @@
 import { PencilSquareIcon } from "@heroicons/react/24/solid";
 import { TrashIcon } from "@heroicons/react/16/solid";
-import EditTodo from "./EditTodo";
-function Todo({ todos, setTodos }) {
+function Todo({ todos, setTodos, setIsOpen }) {
   const handleDelete = (id) => {
     const todoLists = todos.filter((todo) => todo.id !== id);
     setTodos(todoLists);
@@ -11,8 +10,8 @@ function Todo({ todos, setTodos }) {
       todo.id === id ? { ...todo, edit: !todo.edit } : todo
     );
     setTodos(newTodos);
+    setIsOpen((is) => !is);
   };
-  console.log(todos);
   return (
     <div className="todos">
       {todos.map((todo) => (

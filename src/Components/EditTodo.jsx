@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-function EditTodo({ todo, setTodos }) {
+function EditTodo({ todo, setTodos,isOpen }) {
   const [editTodoInput, setEditTodoInput] = useState("");
-  const [isOpen, setIsOpen] = useState(false);
-  const handleEditTodo = () => {
-    setIsOpen(!isOpen);
-    console.log(todo.title);
+  const handleEditTodo = (e) => {
+    e.preventDefault();
     setTodos((prevTodos) => [...prevTodos, todo]);
+    console.log(isOpen);
+    console.log(todo);
   };
   return (
     <div className="content__search">

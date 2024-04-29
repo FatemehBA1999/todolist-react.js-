@@ -5,14 +5,14 @@ import { useState } from "react";
 import EditTodo from "./EditTodo";
 function ToDoLists() {
   const [todos, setTodos] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
   const findEditTodo = todos.find((todo) => todo.edit);
-  console.log(findEditTodo);
   return (
     <div className="container">
       <div className="todo__lists">
         <HeaderTodo setTodos={setTodos} />
-        <EditTodo todo={findEditTodo} setTodos={setTodos} />
-        <Todo todos={todos} setTodos={setTodos} />
+        <EditTodo isOpen={isOpen} todo={findEditTodo} setTodos={setTodos} />
+        <Todo setIsOpen={setIsOpen} todos={todos} setTodos={setTodos} />
       </div>
     </div>
   );

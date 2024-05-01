@@ -14,8 +14,8 @@ function Todo({ todos, setTodos, setIsOpen, isOpen }) {
   };
   return (
     <div className="todos">
-      {todos.map((todo) => (
-        <div className="todo" key={todo.id}>
+      {todos.map((todo, index) => (
+        <div className="todo" key={index}>
           <p className="content">{todo.title}</p>
           <div className="icons">
             <PencilSquareIcon

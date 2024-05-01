@@ -33,6 +33,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  padding: 1rem;
 }
 .todo__title {
   font-weight: 600;
@@ -45,8 +46,15 @@ body {
   display: flex;
   width: 100%;
 }
-.content__search {
+.content__all{
   padding: 1rem;
+  width: 100%;
+
+}
+.content__search {
+  background-color: #fff;
+  border-radius: 10px;
+  display: flex;
   width: 100%;
 }
 .block {

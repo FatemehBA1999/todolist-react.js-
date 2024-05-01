@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import Todo from "./Todo";
 
 function EditTodo({ todo, setTodos, isOpen, setIsOpen }) {
-  const [editTodoInput, setEditTodoInput] = useState("");
+  const [editTodoInput, setEditTodoInput] = useState(todo.title);
   // setEditTodoInput(todo);
   // console.log(todo.title ? "title" : "");
+  console.log(editTodoInput);
+  console.log(todo.title);
   const handleEditTodo = (e) => {
     e.preventDefault();
     setTodos((prevTodos) => [...prevTodos, todo]);
@@ -30,7 +32,7 @@ function ShowEdit(editTodoInput, setEditTodoInput, handleEditTodo) {
       <div className="content__search">
         <form className="search__todo" onSubmit={handleEditTodo}>
           <input
-            name="todo_Input"
+            name="todo"
             value={editTodoInput}
             placeholder="update task"
             className="search"

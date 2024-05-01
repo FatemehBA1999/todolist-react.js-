@@ -12,12 +12,16 @@ function ToDoLists() {
     <div className="container">
       <div className="todo__lists">
         <HeaderTodo setTodos={setTodos} />
-        <EditTodo
-          isOpen={isOpen}
-          todo={findEditTodo}
-          setTodos={setTodos}
-          setIsOpen={setIsOpen}
-        />
+        {isOpen ? (
+          <EditTodo
+            isOpen={isOpen}
+            todo={findEditTodo}
+            setTodos={setTodos}
+            setIsOpen={setIsOpen}
+          />
+        ) : (
+          ""
+        )}
         <Todo
           isOpen={isOpen}
           setIsOpen={setIsOpen}

@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 function EditTodo({ todo, setTodos, isOpen, setIsOpen }) {
   const [editTodoInput, setEditTodoInput] = useState(todo.title || "");
-  // setEditTodoInput(todo);
-  // console.log(todo.title ? "title" : "");
   console.log(todo.title);
   const handleEditTodo = (e) => {
     e.preventDefault();
     isOpen ? (todo.title = editTodoInput) : "";
-    setTodos((prevTodos) => [...prevTodos, todo]);
     setIsOpen(!isOpen);
   };
   return (

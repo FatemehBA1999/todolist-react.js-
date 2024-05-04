@@ -6,24 +6,20 @@ import EditTodo from "./EditTodo";
 function ToDoLists() {
   const [todos, setTodos] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
-  const findEditTodo = todos.find((todo) => todo.edit);
-  console.log(findEditTodo);
+  const [editTodo, setEditTodo] = useState({});
+  console.log(editTodo);
   return (
     <div className="container">
       <div className="todo__lists">
         <HeaderTodo setTodos={setTodos} />
         {isOpen ? (
-          <EditTodo
-            isOpen={isOpen}
-            todo={findEditTodo}
-            setTodos={setTodos}
-            setIsOpen={setIsOpen}
-          />
+          <EditTodo editTodo={editTodo} isOpen={isOpen} setIsOpen={setIsOpen} />
         ) : (
           ""
         )}
         <Todo
           isOpen={isOpen}
+          setEditTodo={setEditTodo}
           setIsOpen={setIsOpen}
           todos={todos}
           setTodos={setTodos}

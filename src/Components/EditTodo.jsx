@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-function EditTodo({ todo, setTodos, isOpen, setIsOpen }) {
-  const [editTodoInput, setEditTodoInput] = useState(todo.title || "");
-  console.log(todo.title);
+function EditTodo({ editTodo, isOpen, setIsOpen }) {
+  const [editTodoInput, setEditTodoInput] = useState(editTodo.title);
   const handleEditTodo = (e) => {
     e.preventDefault();
-    isOpen ? (todo.title = editTodoInput) : "";
+    isOpen ? (editTodo.title = editTodoInput) : "";
+    console.log(editTodo.title);
     setIsOpen(!isOpen);
   };
   return (
@@ -22,7 +22,6 @@ function EditTodo({ todo, setTodos, isOpen, setIsOpen }) {
   );
 }
 function ShowEdit({ editTodoInput, setEditTodoInput, handleEditTodo }) {
-  console.log(editTodoInput);
   return (
     <div className="content__all">
       <div className="content__search">

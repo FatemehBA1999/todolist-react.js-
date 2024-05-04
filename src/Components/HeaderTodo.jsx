@@ -2,14 +2,17 @@ import { useState } from "react";
 
 function HeaderTodo({ setTodos }) {
   const [todoInput, setTodoInput] = useState("");
+  const [count, setCount] = useState(0);
   const handleTodo = (e) => {
     e.preventDefault();
+    if (!todoInput) return;
     const newTodo = {
-      id: Date.now(),
+      id: count,
       title: todoInput,
       edit: false,
       createdAt: new Date().toISOString(),
     };
+    setCount((c) => c + 1);
     setTodos((prevTodos) => [...prevTodos, newTodo]);
     setTodoInput("");
   };

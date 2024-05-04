@@ -13,7 +13,13 @@ function ToDoLists() {
       <div className="todo__lists">
         <HeaderTodo setTodos={setTodos} />
         {isOpen ? (
-          <EditTodo editTodo={editTodo} isOpen={isOpen} setIsOpen={setIsOpen} />
+          <EditTodo
+            todos={todos}
+            setTodos={setTodos}
+            editTodo={editTodo}
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
+          />
         ) : (
           ""
         )}

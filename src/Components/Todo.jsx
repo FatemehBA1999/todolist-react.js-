@@ -9,11 +9,9 @@ function Todo({ todos, setEditTodo, setTodos, setIsOpen, isOpen }) {
     const newTodos = todos.map((todo) =>
       todo.id === id ? { ...todo, edit: !todo.edit } : todo
     );
-    const todoEdit = todos.find((todo) => todo.id === id);
     setTodos(newTodos);
-    console.log(todoEdit);
+    const todoEdit = todos.find((todo) => todo.id === id);
     setEditTodo(todoEdit);
-    console.log(id);
     setIsOpen(!isOpen);
   };
   return (
